@@ -1,0 +1,14 @@
+// Color
+$black: #000 !default;
+$white: #fff !default;
+
+$grid-breakpoints: (
+  xs: 0,
+  md: 600px,
+  xl: 1200px
+) !default;
+
+// Function contrast color
+$contrast-color-threshold: 150 !default;
+$contrast-color-text-black: $black !default;
+$contrast-color-text-white: $white !default;
