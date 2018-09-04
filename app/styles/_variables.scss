@@ -1,11 +1,34 @@
 // Color
 $black: #000 !default;
+$gold: #FFD700 !default;
+$green: #008000 !default;
+$orange: #FFA500 !default;
+$olive: #808000 !default;
+$red: #FF0000 !default;
+$brown: #A52A2A !default;
+$teal: #008080 !default;
+$violet: #EE82EE !default;
+$yellow: #FFFF00 !default;
 $white: #fff !default;
 
 $grid-breakpoints: (
   xs: 0,
   md: 600px,
   xl: 1200px
+) !default;
+
+$colors: (
+  "black": $black,
+  "gold": $gold,
+  "green": $green,
+  "orange": $orange,
+  "olive": $olive,
+  "red": $red,
+  "brown": $brown,
+  "teal": $teal,
+  "violet": $violet,
+  "yellow": $yellow,
+  "white": $white,
 ) !default;
 
 // Function contrast color

@@ -8,17 +8,26 @@ const Modal = {
   init: function() {
     let self = this
 
-    let modals = document.querySelectorAll('.modals')
+    let modals = document.querySelectorAll('.modal')
     modals.forEach(function(modal) {
 
-      modal.addEventListener('transitionend', function() {
+      let transitionEnd = function(event) {
+
+        if(event.propertyName !== 'transform') {
+          return
+        }
+
         if(modal.classList.contains('active')) {
           modal.dispatchEvent(eventShown)
         }
         else {
           modal.dispatchEvent(eventHidden)
         }
-      })
+      }
+
+      modal.addEventListener('webkitTransitionEnd', transitionEnd)
+      modal.addEventListener('oTransitionEnd', transitionEnd)
+      modal.addEventListener('transitionend', transitionEnd)
     })
 
     let triggers = document.querySelectorAll('[data-modal-selector]')
@@ -34,6 +43,15 @@ const Modal = {
         else {
           self.show(selector)
         }
+      })
+    })
+
+    let dimissers = document.querySelectorAll('[data-modal-dimiss]')
+    dimissers.forEach(function(dimisser) {
+
+      dimisser.addEventListener('click', function() {
+        let selector = dimisser.dataset.modalDimiss
+        self.hide(selector)
       })
     })
   },

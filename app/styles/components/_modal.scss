@@ -1,14 +1,33 @@
 .modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  height: auto;
+  transition: all 0.25s ease-in;
+  transform: translate(-50%, -100%);
+  border: 1px solid #e9ecef;
+  border-radius: 0.25rem;
+  opacity: 0;
+  z-index: -1;
+
+  &.active {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    z-index: 1000;
+  }
 
   .modal-header {
-
+    border-bottom: 1px solid #e9ecef;
+    padding: 1.25rem;
   }
 
   .modal-content {
-
+    padding: 1.25rem;
   }
 
   .modal-footer {
-    
+    border-top: 1px solid #e9ecef;
+    padding: 1.25rem;
   }
 }
