@@ -13,3 +13,9 @@
     @return $contrast-color-text-white;
   }
 }
+
+// Calc Column Width
+@function calc-column-width($i) {
+  $width: (100% / 12) * $i;
+  @return $width;
+}

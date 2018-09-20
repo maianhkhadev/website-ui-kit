@@ -6,15 +6,20 @@
   height: auto;
   transition: all 0.25s ease-in;
   transform: translate(-50%, -100%);
+  background-color: #ffffff;
   border: 1px solid #e9ecef;
   border-radius: 0.25rem;
   opacity: 0;
-  z-index: -1;
+  z-index: $zindex-hidden;
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+  }
 
   &.active {
     transform: translate(-50%, -50%);
     opacity: 1;
-    z-index: 1000;
+    z-index: $zindex-modal;
   }
 
   .modal-header {
@@ -29,5 +34,22 @@
   .modal-footer {
     border-top: 1px solid #e9ecef;
     padding: 1.25rem;
+  }
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  transition: all 0.25s ease-in;
+  background-color: transparent;
+  z-index: $zindex-hidden;
+  cursor: pointer;
+
+  &.show {
+    background-color: rgba(#000000, 0.35);
+    z-index: $zindex-backdrop;
   }
 }

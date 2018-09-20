@@ -1,0 +1,29 @@
+section {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+
+  .section-header {
+    margin-bottom: 2rem;
+  }
+}
+
+.section-grid {
+
+  [class*='col-'] {
+    background-color: #d4d0de;
+    border: 1px solid #bfb7cf;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
+.section-button {
+
+  button {
+    text-transform: uppercase;
+  }
+}
+
+.section-modal {
+
+}

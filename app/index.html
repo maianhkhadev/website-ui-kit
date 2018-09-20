@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>ui kit</title>
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -29,22 +29,74 @@
     <header>
       <div class="container">
         <nav class="navbar">
-          <a class="navbar-brand" href="#">Navbar</a>
+          <a class="navbar-brand">UI-KIT</a>
 
-          <ul class="navbar-nav">
-           <li class="nav-item active">
-             <a class="nav-link" href="#">Home</a>
-           </li>
-           <li class="nav-item">
-             <a class="nav-link" href="#">Link</a>
-           </li>
-           <li class="nav-item">
-             <a class="nav-link" href="#">Disabled</a>
-           </li>
-         </ul>
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link">P&R2018</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">EXHIBIT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">VISIT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">EVENTS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">MEDIA CENTRE</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">CONTACT US</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">ABOUT</a>
+            </li>
+          </ul>
+
+          <button class="navbar-icon">
+            <span class="icon">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </button>
         </nav>
       </div>
     </header>
+
+    <section class="section-grid">
+      <div class="container">
+        <div class="section-header">
+          <h2>Grid</h2>
+        </div>
+        <div class="section-content">
+          <div>.col-xl- is for width > 1200px.</div>
+
+          <div class="row">
+            <div class="col-xl-6">col-xl-6</div>
+            <div class="col-xl-4">col-xl-4</div>
+            <div class="col-xl-2">col-xl-2</div>
+          </div>
+
+          <div>.col-md- is for width > 600px and width < 1200px.</div>
+          <div class="row">
+            <div class="col-md-6">col-md-6</div>
+            <div class="col-md-4">col-md-4</div>
+            <div class="col-md-2">col-md-2</div>
+          </div>
+
+          <div>.col- is for width < 600px.</div>
+          <div class="row">
+            <div class="col-6">col-6</div>
+            <div class="col-4">col-4</div>
+            <div class="col-2">col-2</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section class="section-button">
       <div class="container">
@@ -91,7 +143,7 @@
       </div>
     </section>
 
-    <section class="section-button">
+    <section class="section-text">
       <div class="container">
         <div class="section-header">
           <h2>Text</h2>
@@ -108,6 +160,58 @@
           <p class="text-violet">Violet</p>
           <p class="text-yellow">Yellow</p>
           <p class="text-white">White</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-tab">
+      <div class="container">
+        <div class="section-header">
+          <h2>Tab</h2>
+        </div>
+        <div class="section-content">
+          <div class="tab">
+            <div class="tab-links">
+              <a class="tab-link active" data-tab-content-id="tab-content-01">Home</a>
+              <a class="tab-link" data-tab-content-id="tab-content-02">Profile</a>
+              <a class="tab-link" data-tab-content-id="tab-content-03">Contact</a>
+            </div>
+            <div class="tab-contents">
+              <div class="tab-content show" id="tab-content-01">
+                Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.
+              </div>
+              <div class="tab-content" id="tab-content-02">
+                Nulla est ullamco ut irure incididunt nulla Lorem Lorem minim irure officia enim reprehenderit. Magna duis labore cillum sint adipisicing exercitation ipsum. Nostrud ut anim non exercitation velit laboris fugiat cupidatat. Commodo esse dolore fugiat sint velit ullamco magna consequat voluptate minim amet aliquip ipsum aute laboris nisi. Labore labore veniam irure irure ipsum pariatur mollit magna in cupidatat dolore magna irure esse tempor ad mollit. Dolore commodo nulla minim amet ipsum officia consectetur amet ullamco voluptate nisi commodo ea sit eu.
+              </div>
+              <div class="tab-content" id="tab-content-03">
+                Sint sit mollit irure quis est nostrud cillum consequat Lorem esse do quis dolor esse fugiat sunt do. Eu ex commodo veniam Lorem aliquip laborum occaecat qui Lorem esse mollit dolore anim cupidatat. Deserunt officia id Lorem nostrud aute id commodo elit eiusmod enim irure amet eiusmod qui reprehenderit nostrud tempor. Fugiat ipsum excepteur in aliqua non et quis aliquip ad irure in labore cillum elit enim. Consequat aliquip incididunt ipsum et minim laborum laborum laborum et cillum labore. Deserunt adipisicing cillum id nulla minim nostrud labore eiusmod et amet.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-slider">
+      <div class="container">
+        <div class="section-header">
+          <h2>Slider</h2>
+        </div>
+        <div class="section-content">
+          <div class="uikit-slider">
+            <div class="slide">
+              <img class="" src="./images/section-slider/im-01.jpeg" alt=""/>
+            </div>
+            <div class="slide">
+              <img class="" src="./images/section-slider/im-02.jpeg" alt=""/>
+            </div>
+            <div class="slide">
+              <img class="" src="./images/section-slider/im-03.jpeg" alt=""/>
+            </div>
+            <div class="slide">
+              <img class="" src="./images/section-slider/im-04.jpeg" alt=""/>
+            </div>
+          </div>
         </div>
       </div>
     </section>

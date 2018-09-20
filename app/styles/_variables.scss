@@ -35,3 +35,8 @@ $colors: (
 $contrast-color-threshold: 150 !default;
 $contrast-color-text-black: $black !default;
 $contrast-color-text-white: $white !default;
+
+// Z-index
+$zindex-hidden: -1;
+$zindex-backdrop: 1040;
+$zindex-modal: 1050;

@@ -3,78 +3,113 @@ const eventShown = new CustomEvent('modal.shown')
 const eventHide = new CustomEvent('modal.hide')
 const eventHidden = new CustomEvent('modal.hidden')
 
-const Modal = {
+const Modal = function(selector, options = {}) {
+  let self = this
+  self.selector = selector
+  self.options = options
 
-  init: function() {
-    let self = this
+  self.show = function() {
+    Modal.show(self.selector, self.options)
+  }
 
-    let modals = document.querySelectorAll('.modal')
-    modals.forEach(function(modal) {
+  self.hide = function() {
+    Modal.hide(self.selector, self.options)
+  }
+}
 
-      let transitionEnd = function(event) {
+Modal.loaded = function() {
+  Modal.createBackDrop()
 
-        if(event.propertyName !== 'transform') {
-          return
-        }
+  let modals = document.querySelectorAll('.modal')
+  modals.forEach(function(modal) {
 
-        if(modal.classList.contains('active')) {
-          modal.dispatchEvent(eventShown)
-        }
-        else {
-          modal.dispatchEvent(eventHidden)
-        }
+    let transitionEnd = function(event) {
+
+      if(event.propertyName !== 'transform') {
+        return
       }
 
-      modal.addEventListener('webkitTransitionEnd', transitionEnd)
-      modal.addEventListener('oTransitionEnd', transitionEnd)
-      modal.addEventListener('transitionend', transitionEnd)
+      if(modal.classList.contains('active')) {
+        modal.dispatchEvent(eventShown)
+      }
+      else {
+        modal.dispatchEvent(eventHidden)
+      }
+    }
+
+    modal.addEventListener('webkitTransitionEnd', transitionEnd)
+    modal.addEventListener('oTransitionEnd', transitionEnd)
+    modal.addEventListener('transitionend', transitionEnd)
+  })
+
+  let triggers = document.querySelectorAll('[data-modal-selector]')
+  triggers.forEach(function(trigger) {
+
+    trigger.addEventListener('click', function() {
+      let selector = trigger.dataset.modalSelector
+      let modal = document.querySelector(selector)
+
+      if(modal.classList.contains('active')) {
+        Modal.hide(selector)
+      }
+      else {
+        Modal.show(selector)
+      }
     })
+  })
+
+  let dimissers = document.querySelectorAll('[data-modal-dimiss]')
+  dimissers.forEach(function(dimisser) {
+
+    dimisser.addEventListener('click', function() {
+      let selector = dimisser.dataset.modalDimiss
+      Modal.hide(selector)
+    })
+  })
+},
+
+Modal.createBackDrop = function() {
+  let self = this
+
+  let backdrop = document.createElement('div')
+  backdrop.classList.add('backdrop')
+  backdrop.addEventListener('click', function() {
 
     let triggers = document.querySelectorAll('[data-modal-selector]')
     triggers.forEach(function(trigger) {
-
-      trigger.addEventListener('click', function() {
-        let selector = trigger.dataset.modalSelector
-        let modal = document.querySelector(selector)
-
-        if(modal.classList.contains('active')) {
-          self.hide(selector)
-        }
-        else {
-          self.show(selector)
-        }
-      })
+      let selector = trigger.dataset.modalSelector
+      Modal.hide(selector)
     })
+  })
 
-    let dimissers = document.querySelectorAll('[data-modal-dimiss]')
-    dimissers.forEach(function(dimisser) {
+  let body = document.querySelector('body')
+  body.appendChild(backdrop)
+}
 
-      dimisser.addEventListener('click', function() {
-        let selector = dimisser.dataset.modalDimiss
-        self.hide(selector)
-      })
-    })
-  },
+Modal.show = function(selector, options = {}) {
+  let modal = document.querySelector(selector)
+  modal.classList.add('active')
 
-  show: function(selector) {
-    let modal = document.querySelector(selector)
-    modal.classList.add('active')
+  let body = document.querySelector('body')
+  body.classList.add('no-scroll')
 
-    let body = document.querySelector('body')
-    body.classList.add('no-scroll')
+  let backdrop = document.querySelector('.backdrop')
+  backdrop.classList.add('show')
 
-    modal.dispatchEvent(eventShow)
-  },
+  modal.dispatchEvent(eventShow)
+}
 
-  hide: function(selector) {
-    let modal = document.querySelector(selector)
-    modal.classList.remove('active')
+Modal.hide = function(selector) {
+  let modal = document.querySelector(selector)
+  modal.classList.remove('active')
 
-    let body = document.querySelector('body')
-    body.classList.remove('no-scroll')
+  let body = document.querySelector('body')
+  body.classList.remove('no-scroll')
 
-    modal.dispatchEvent(eventHide)
-  }
+  let backdrop = document.querySelector('.backdrop')
+  backdrop.classList.remove('show')
+
+  modal.dispatchEvent(eventHide)
 }
 
 if(window.uiKit === undefined) {

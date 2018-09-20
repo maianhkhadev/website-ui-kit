@@ -1,0 +1,37 @@
+@mixin make-columns($columns: 12) {
+
+  %column {
+    flex: 0 0 100%;
+    position: relative;
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @for $i from 1 through $columns {
+
+    .col-#{$i} {
+      @extend %column;
+      flex-basis: calc-column-width($i);
+      max-width: calc-column-width($i);
+    }
+
+    .col-md-#{$i} {
+      @extend %column;
+
+      @media screen and (min-width: 600px) {
+        flex-basis: calc-column-width($i);
+        max-width: calc-column-width($i);
+      }
+    }
+
+    .col-xl-#{$i} {
+      @extend %column;
+
+      @media screen and (min-width: 1200px) {
+        flex-basis: calc-column-width($i);
+        max-width: calc-column-width($i);
+      }
+    }
+  }
+}

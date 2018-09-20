@@ -1,0 +1,34 @@
+.tab {
+
+  .tab-links {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #dee2e6;
+    margin-bottom: 1rem;
+
+    .tab-link {
+      display: block;
+      border: 1px solid transparent;
+      padding: 0.5rem 1rem;
+      margin-bottom: -1px;
+      cursor: pointer;
+
+      &.active {
+        border-color: #dee2e6;
+        border-bottom-color: #ffffff;
+      }
+    }
+  }
+
+  .tab-contents {
+
+    .tab-content {
+      transition: opacity 0.15s linear;
+
+      &:not(.show) {
+        display: none;
+        opacity: 0;
+      }
+    }
+  }
+}

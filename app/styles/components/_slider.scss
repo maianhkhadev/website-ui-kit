@@ -1,0 +1,17 @@
+.uikit-slider {
+  overflow: hidden;
+
+  .uikit-slide-container {
+    display: flex;
+
+    .uikit-slide {
+      flex: 0 0 100%;
+      max-width: 100%;
+      transition: all 0.25s ease-in;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
