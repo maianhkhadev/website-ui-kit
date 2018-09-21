@@ -1,0 +1,40 @@
+.breadcrumb {
+  list-style: none;
+  display: flex;
+  padding-left: 0;
+
+  .breadcrumb-item {
+
+    &::before {
+      content: '-';
+      display: inline-block;
+      color: #007bff;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+
+    .breadcrumb-link {
+      color: #007bff;
+      text-decoration: none;
+
+      &:hover {
+        color: darken(#007bff, 10%);
+      }
+    }
+
+    &:first-child {
+
+      &::before {
+        content: unset;
+      }
+    }
+
+    &:last-child {
+
+      .breadcrumb-link {
+        color: #6c757d;
+        pointer-events: none;
+      }
+    }
+  }
+}
