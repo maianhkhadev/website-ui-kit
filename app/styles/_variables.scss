@@ -1,14 +1,14 @@
 // Color
 $black: #000 !default;
-$gold: #FFD700 !default;
-$green: #008000 !default;
-$orange: #FFA500 !default;
-$olive: #808000 !default;
-$red: #FF0000 !default;
-$brown: #A52A2A !default;
-$teal: #008080 !default;
-$violet: #EE82EE !default;
-$yellow: #FFFF00 !default;
+$red: #E3342F !default;
+$orange: #F6993F !default;
+$yellow: #FFED4A !default;
+$green: #38C172 !default;
+$teal: #4DC0B5 !default;
+$blue: #3490DC !default;
+$indigo: #6574CD !default;
+$purple: #9561E2 !default;
+$pink: #F66D9B !default;
 $white: #fff !default;
 
 $grid-breakpoints: (
@@ -19,15 +19,15 @@ $grid-breakpoints: (
 
 $colors: (
   "black": $black,
-  "gold": $gold,
-  "green": $green,
-  "orange": $orange,
-  "olive": $olive,
   "red": $red,
-  "brown": $brown,
-  "teal": $teal,
-  "violet": $violet,
+  "orange": $orange,
   "yellow": $yellow,
+  "green": $green,
+  "teal": $teal,
+  "blue": $blue,
+  "indigo": $indigo,
+  "purple": $purple,
+  "pink": $pink,
   "white": $white,
 ) !default;
 

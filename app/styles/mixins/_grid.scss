@@ -15,6 +15,9 @@
       flex-basis: calc-column-width($i);
       max-width: calc-column-width($i);
     }
+  }
+
+  @for $i from 1 through $columns {
 
     .col-md-#{$i} {
       @extend %column;
@@ -24,6 +27,10 @@
         max-width: calc-column-width($i);
       }
     }
+
+  }
+
+  @for $i from 1 through $columns {
 
     .col-xl-#{$i} {
       @extend %column;

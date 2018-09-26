@@ -8,6 +8,7 @@ const browserify = require('browserify');
 const babelify = require('babelify');
 const buffer = require('vinyl-buffer');
 const source = require('vinyl-source-stream');
+const es = require('event-stream');
 const runSequence = require('run-sequence');
 
 const $ = gulpLoadPlugins();
@@ -31,14 +32,27 @@ gulp.task('styles', () => {
 });
 
 gulp.task('scripts', () => {
-  const b = browserify({
+  const tasks = []
+
+  tasks[0] = browserify({
     entries: 'app/scripts/ui-kit.js',
     transform: babelify,
     debug: true
-  });
+  }).bundle()
+    .pipe(source('ui-kit.js'))
+    .pipe($.plumber())
+    .pipe(buffer())
+    .pipe($.sourcemaps.init({loadMaps: true}))
+    .pipe($.sourcemaps.write('.'))
+    .pipe(gulp.dest('.tmp/scripts'))
+    .pipe(reload({stream: true}));
 
-  return b.bundle()
-    .pipe(source('bundle.js'))
+  tasks[1] = browserify({
+    entries: 'app/scripts/main.js',
+    transform: babelify,
+    debug: true
+  }).bundle()
+    .pipe(source('main.js'))
     .pipe($.plumber())
     .pipe(buffer())
     .pipe($.sourcemaps.init({loadMaps: true}))
@@ -52,6 +66,7 @@ gulp.task('scripts', () => {
   //   .pipe($.if(dev, $.sourcemaps.write('.')))
   //   .pipe(gulp.dest('.tmp/scripts'))
   //   .pipe(reload({stream: true}));
+  return es.merge.apply(null, tasks);
 });
 
 function lint(files) {

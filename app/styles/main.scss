@@ -4,6 +4,12 @@ section {
 
   .section-header {
     margin-bottom: 2rem;
+
+    h2.section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
   }
 }
 
@@ -26,4 +32,24 @@ section {
 
 .section-modal {
 
+}
+
+.section-group-height {
+
+  .block {
+    border: 1px solid #eeeeee;
+    border-radius: 0.5rem;
+    padding: 1rem;
+
+    h4.block-title {
+      color: #000000;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      line-height: 1.5rem;
+    }
+  }
 }
