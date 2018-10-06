@@ -42,18 +42,18 @@ Modal.loaded = function() {
     modal.addEventListener('transitionend', transitionEnd)
   })
 
-  let triggers = document.querySelectorAll('[data-modal-selector]')
-  triggers.forEach(function(trigger) {
+  let selectors = document.querySelectorAll('[data-modal-selector]')
+  selectors.forEach(function(selector) {
 
-    trigger.addEventListener('click', function() {
-      let selector = trigger.dataset.modalSelector
-      let modal = document.querySelector(selector)
+    selector.addEventListener('click', function() {
+      let modalSelector = selector.dataset.modalSelector
+      let modal = document.querySelector(modalSelector)
 
       if(modal.classList.contains('active')) {
-        Modal.hide(selector)
+        Modal.hide(modalSelector)
       }
       else {
-        Modal.show(selector)
+        Modal.show(modalSelector)
       }
     })
   })
@@ -62,8 +62,8 @@ Modal.loaded = function() {
   dimissers.forEach(function(dimisser) {
 
     dimisser.addEventListener('click', function() {
-      let selector = dimisser.dataset.modalDimiss
-      Modal.hide(selector)
+      let modalDimiss = dimisser.dataset.modalDimiss
+      Modal.hide(modalDimiss)
     })
   })
 },
@@ -75,10 +75,10 @@ Modal.createBackDrop = function() {
   backdrop.classList.add('backdrop')
   backdrop.addEventListener('click', function() {
 
-    let triggers = document.querySelectorAll('[data-modal-selector]')
-    triggers.forEach(function(trigger) {
-      let selector = trigger.dataset.modalSelector
-      Modal.hide(selector)
+    let selectors = document.querySelectorAll('[data-modal-selector]')
+    selectors.forEach(function(selector) {
+      let modalSelector = selector.dataset.modalSelector
+      Modal.hide(modalSelector)
     })
   })
 

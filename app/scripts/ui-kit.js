@@ -2,6 +2,7 @@ import Modal from './components/modal'
 import Navbar from './components/navbar'
 import Tab from './components/tab'
 
+import FormCheck from './utilities/form-check'
 import GroupHeight from './utilities/group-height'
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -14,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
   Navbar.loaded()
   Tab.loaded()
 
+  FormCheck.loaded()
   GroupHeight.loaded()
 
   DetectTouchDevice()

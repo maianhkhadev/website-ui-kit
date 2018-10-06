@@ -2,15 +2,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
   let modal = document.querySelector('.modal')
   modal.addEventListener('modal.show', function() {
-    console.log('show')
+    console.log('modal-show')
   })
   modal.addEventListener('modal.shown', function() {
-    console.log('shown')
+    console.log('modal-shown')
   })
   modal.addEventListener('modal.hide', function() {
-    console.log('hide')
+    console.log('modal-hide')
   })
   modal.addEventListener('modal.hidden', function() {
-    console.log('hidden')
+    console.log('modal-hidden')
+  })
+
+  let tab = document.querySelector('.tab')
+  tab.addEventListener('tab.change', function(e) {
+    console.log('tab-change')
   })
 })

@@ -23,8 +23,25 @@
   }
 
   .modal-header {
+    position: relative;
     border-bottom: 1px solid #e9ecef;
     padding: 1.25rem;
+
+    .close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      color: #000000;
+      background-color: transparent;
+      font-size: 1rem;
+      line-height: 1;
+      border-width: 0;
+      cursor: pointer;
+
+      &:focus {
+        outline: unset;
+      }
+    }
   }
 
   .modal-content {

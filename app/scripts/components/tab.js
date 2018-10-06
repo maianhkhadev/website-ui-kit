@@ -1,3 +1,5 @@
+const eventChange = new CustomEvent('tab.change')
+
 const Tab = function() {
 }
 
@@ -12,6 +14,9 @@ Tab.loaded = function() {
 
       tabLink.classList.add('active')
       tabContent.classList.add('show')
+
+      let tab = tabContent.closest('.tab')
+      tab.dispatchEvent(eventChange)
     })
   })
 }
