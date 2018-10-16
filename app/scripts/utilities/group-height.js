@@ -10,16 +10,21 @@ const GroupHeight = {
     self.afterHTMLLoaded()
     self.onHTMLResize()
   },
+  calc: function() {
+    let self = this
+    self.onHTMLResize()
+  },
   afterHTMLLoaded: function() {
     let elements = document.querySelectorAll('[data-group-height]')
     elements.forEach(function(element) {
-      element.setAttribute('uikit-calculated', 'false');
+      element.setAttribute('uikit-calculated', 'false')
     })
   },
   beforeHTMLResize: function() {
     let elements = document.querySelectorAll('[data-group-height]')
     elements.forEach(function(element) {
-      element.setAttribute('uikit-calculated', 'false');
+      element.setAttribute('uikit-calculated', 'false')
+      element.style.height = ''
     })
   },
   onHTMLResize: function() {
@@ -57,5 +62,7 @@ const GroupHeight = {
     return height
   }
 }
+
+window.uiKit.GroupHeight = GroupHeight
 
 export default GroupHeight

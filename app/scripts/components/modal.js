@@ -18,7 +18,7 @@ const Modal = function(selector, options = {}) {
 }
 
 Modal.loaded = function() {
-  Modal.createBackDrop()
+  Modal.createBackdrop()
 
   let modals = document.querySelectorAll('.modal')
   modals.forEach(function(modal) {
@@ -68,17 +68,16 @@ Modal.loaded = function() {
   })
 },
 
-Modal.createBackDrop = function() {
+Modal.createBackdrop = function() {
   let self = this
 
   let backdrop = document.createElement('div')
   backdrop.classList.add('backdrop')
   backdrop.addEventListener('click', function() {
 
-    let selectors = document.querySelectorAll('[data-modal-selector]')
-    selectors.forEach(function(selector) {
-      let modalSelector = selector.dataset.modalSelector
-      Modal.hide(modalSelector)
+    let modals = document.querySelectorAll('.modal')
+    modals.forEach(function(modal) {
+      Modal.hideWithElement(modal)
     })
   })
 
@@ -86,22 +85,30 @@ Modal.createBackDrop = function() {
   body.appendChild(backdrop)
 }
 
-Modal.show = function(selector, options = {}) {
+Modal.show = function(selector, options = { backdrop: true, scroll: false }) {
   let modal = document.querySelector(selector)
-  modal.classList.add('active')
+  modal.classList.add('show')
 
-  let body = document.querySelector('body')
-  body.classList.add('no-scroll')
+  if(options.scroll === false) {
+    let body = document.querySelector('body')
+    body.classList.add('no-scroll')
+  }
 
-  let backdrop = document.querySelector('.backdrop')
-  backdrop.classList.add('show')
+  if(options.backdrop === true) {
+    let backdrop = document.querySelector('.backdrop')
+    backdrop.classList.add('show')
+  }
 
   modal.dispatchEvent(eventShow)
 }
 
 Modal.hide = function(selector) {
   let modal = document.querySelector(selector)
-  modal.classList.remove('active')
+  Modal.hideWithElement(modal)
+}
+
+Modal.hideWithElement = function(modal) {
+  modal.classList.remove('show')
 
   let body = document.querySelector('body')
   body.classList.remove('no-scroll')
