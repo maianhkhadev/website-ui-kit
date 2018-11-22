@@ -124,5 +124,3 @@ if(window.uiKit === undefined) {
 }
 
 window.uiKit.Modal = Modal
-
-export default Modal

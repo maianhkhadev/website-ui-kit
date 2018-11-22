@@ -1,6 +1,7 @@
 const eventChange = new CustomEvent('tab.change')
 
 const Tab = function() {
+
 }
 
 Tab.loaded = function() {
@@ -38,5 +39,3 @@ if(window.uiKit === undefined) {
 }
 
 window.uiKit.Tab = Tab
-
-export default Tab

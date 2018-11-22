@@ -64,5 +64,3 @@ const GroupHeight = {
 }
 
 window.uiKit.GroupHeight = GroupHeight
-
-export default GroupHeight

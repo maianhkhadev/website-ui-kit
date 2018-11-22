@@ -4,10 +4,16 @@ const gulpLoadPlugins = require('gulp-load-plugins');
 const browserSync = require('browser-sync').create();
 const del = require('del');
 const wiredep = require('wiredep').stream;
+const browserify = require('browserify');
+const babelify = require('babelify');
+const buffer = require('vinyl-buffer');
+const source = require('vinyl-source-stream');
+const es = require('event-stream');
 const runSequence = require('run-sequence');
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
+
 
 let dev = true;
 
@@ -27,13 +33,41 @@ gulp.task('styles', () => {
 });
 
 gulp.task('scripts', () => {
-  return gulp.src('app/scripts/**/*.js')
+  const tasks = []
+
+  tasks[0] = browserify({
+    entries: 'app/scripts/ui-kit.js',
+    transform: babelify,
+    debug: true
+  }).bundle()
+    .pipe(source('ui-kit.js'))
     .pipe($.plumber())
-    .pipe($.if(dev, $.sourcemaps.init()))
-    .pipe($.babel())
-    .pipe($.if(dev, $.sourcemaps.write('.')))
+    .pipe(buffer())
+    .pipe($.sourcemaps.init({loadMaps: true}))
+    .pipe($.sourcemaps.write('.'))
     .pipe(gulp.dest('.tmp/scripts'))
     .pipe(reload({stream: true}));
+
+  tasks[1] = browserify({
+    entries: 'app/scripts/main.js',
+    transform: babelify,
+    debug: true
+  }).bundle()
+    .pipe(source('main.js'))
+    .pipe($.plumber())
+    .pipe(buffer())
+    .pipe($.sourcemaps.init({loadMaps: true}))
+    .pipe($.sourcemaps.write('.'))
+    .pipe(gulp.dest('.tmp/scripts'))
+    .pipe(reload({stream: true}));
+  // return gulp.src('app/scripts/**/*.js')
+  //   .pipe($.plumber())
+  //   .pipe($.if(dev, $.sourcemaps.init()))
+  //   .pipe($.babel())
+  //   .pipe($.if(dev, $.sourcemaps.write('.')))
+  //   .pipe(gulp.dest('.tmp/scripts'))
+  //   .pipe(reload({stream: true}));
+  return es.merge.apply(null, tasks);
 });
 
 function lint(files) {

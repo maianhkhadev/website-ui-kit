@@ -1,22 +1,15 @@
-import Modal from './components/modal'
-import Navbar from './components/navbar'
-import Tab from './components/tab'
-
-import FormCheck from './utilities/form-check'
-import GroupHeight from './utilities/group-height'
-
 document.addEventListener('DOMContentLoaded', function() {
 
   window.addEventListener('resize', function() {
     DetectTouchDevice()
   })
 
-  Modal.loaded()
-  Navbar.loaded()
-  Tab.loaded()
+  window.uiKit.Modal.loaded()
+  window.uiKit.Navbar.loaded()
+  window.uiKit.Tab.loaded()
 
-  FormCheck.loaded()
-  GroupHeight.loaded()
+  window.uiKit.FormCheck.loaded()
+  window.uiKit.GroupHeight.loaded()
 
   DetectTouchDevice()
 })

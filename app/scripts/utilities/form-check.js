@@ -25,4 +25,4 @@ const FormCheck = {
   }
 }
 
-export default FormCheck
+window.uiKit.FormCheck = FormCheck

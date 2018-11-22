@@ -21,5 +21,3 @@ if(window.uiKit === undefined) {
 }
 
 window.uiKit.Navbar = Navbar
-
-export default Navbar
