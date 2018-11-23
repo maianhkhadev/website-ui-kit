@@ -8,17 +8,17 @@
     &::before {
       content: '-';
       display: inline-block;
-      color: #007bff;
+      color: $color-orange;
       padding-left: 0.5rem;
       padding-right: 0.5rem;
     }
 
     .breadcrumb-link {
-      color: #007bff;
+      color: $color-orange;
       text-decoration: none;
 
       &:hover {
-        color: darken(#007bff, 10%);
+        color: darken($color-orange, 10%);
       }
     }
 
@@ -32,7 +32,7 @@
     &:last-child {
 
       .breadcrumb-link {
-        color: #6c757d;
+        color: #000000;
         pointer-events: none;
       }
     }
