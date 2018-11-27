@@ -8,8 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
   window.uiKit.Navbar.loaded()
   window.uiKit.Tab.loaded()
 
-  window.uiKit.FormCheck.loaded()
-  window.uiKit.GroupHeight.loaded()
+  window.uiKit.LineClamp.loaded()
 
   DetectTouchDevice()
 })

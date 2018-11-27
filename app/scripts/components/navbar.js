@@ -16,8 +16,4 @@ const Navbar = {
   }
 }
 
-if(window.uiKit === undefined) {
-  window.uiKit = {}
-}
-
 window.uiKit.Navbar = Navbar

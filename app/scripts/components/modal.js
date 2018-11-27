@@ -119,8 +119,4 @@ Modal.hideWithElement = function(modal) {
   modal.dispatchEvent(eventHide)
 }
 
-if(window.uiKit === undefined) {
-  window.uiKit = {}
-}
-
 window.uiKit.Modal = Modal

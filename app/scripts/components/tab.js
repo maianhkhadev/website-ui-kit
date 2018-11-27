@@ -34,8 +34,4 @@ Tab.beforeTabLinkClick = function() {
   })
 }
 
-if(window.uiKit === undefined) {
-  window.uiKit = {}
-}
-
 window.uiKit.Tab = Tab

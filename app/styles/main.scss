@@ -40,7 +40,7 @@ section {
 
 }
 
-.section-group-height {
+.section-line-clamp {
 
   .block {
     border: 1px solid #eeeeee;
@@ -55,7 +55,7 @@ section {
     }
 
     p {
-      line-height: 1.5rem;
+      line-height: 1.5;
     }
   }
 }
