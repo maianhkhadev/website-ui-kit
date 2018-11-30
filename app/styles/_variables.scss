@@ -1,14 +1,6 @@
 // Color
+$maroon: #663300 !default;
 $black: #000 !default;
-$red: #E3342F !default;
-$color-orange: #F6993F !default;
-$yellow: #FFED4A !default;
-$green: #38C172 !default;
-$color-teal: #4DC0B5 !default;
-$blue: #3490DC !default;
-$indigo: #6574CD !default;
-$purple: #9561E2 !default;
-$pink: #F66D9B !default;
 $white: #fff !default;
 
 $grid-breakpoints: (
@@ -18,6 +10,7 @@ $grid-breakpoints: (
 ) !default;
 
 $colors: (
+  "maroon": $maroon,
   "black": $black,
   "white": $white,
 ) !default;

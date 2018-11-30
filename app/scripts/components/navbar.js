@@ -1,8 +1,6 @@
 const Navbar = {
 
   loaded: function() {
-    let self = this
-
     let icon = document.querySelector('.navbar-icon')
 
     if(icon === null) {

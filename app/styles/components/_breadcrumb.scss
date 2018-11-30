@@ -8,17 +8,17 @@
     &::before {
       content: '-';
       display: inline-block;
-      color: $color-orange;
+      color: $maroon;
       padding-left: 0.5rem;
       padding-right: 0.5rem;
     }
 
     .breadcrumb-link {
-      color: $color-orange;
+      color: $maroon;
       text-decoration: none;
 
       &:hover {
-        color: darken($color-orange, 10%);
+        color: darken($maroon, 10%);
       }
     }
 

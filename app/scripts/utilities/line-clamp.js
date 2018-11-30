@@ -1,43 +1,52 @@
-const LineClamp = {
+const LineClamp = class {
 
-}
+  constructor() {
 
-LineClamp.getLineHeight = function(computedStyle) {
-  let computedValue = computedStyle.getPropertyValue('line-height')
-  let valueStr = computedValue.replace('px', '')
-  return parseInt(valueStr)
-}
+  }
 
-LineClamp.loaded = function() {
-  let elements = document.querySelectorAll('[data-line-clamp]')
-  elements.forEach(function(element) {
-    let style = window.getComputedStyle(element)
-    let lineHeight = LineClamp.getLineHeight(style)
-    let lineClamp = element.dataset.lineClamp
+  static loaded() {
+    LineClamp.activate()
 
-    element.classList.add('no-scroll')
-    element.style.height = `${lineClamp * lineHeight}px`
+    window.addEventListener('resize', function() {
+      LineClamp.execute()
+    })
+  }
 
-    LineClamp.ellipsize(element)
-  })
-}
+  static activate() {
+    LineClamp.setDataContent()
+    LineClamp.execute()
+  }
 
-LineClamp.ellipsize = function(element) {
-  let wordArray = element.innerHTML.split(' ');
-  while(element.scrollHeight > element.offsetHeight) {
-    wordArray.pop();
-    element.innerHTML = wordArray.join(' ') + '...';
- }
-}
+  static setDataContent() {
+    let elements = document.querySelectorAll('[data-line-clamp]')
+    elements.forEach(function(element) {
+      if(element.dataset.content === undefined) {
+        element.dataset.content = element.innerHTML
+      }
+    })
+  }
 
-function test(element, lineHeight) {
-  let numberOfLine = element.scrollHeight / lineHeight
-  let words = element.innerHTML.split(' ');
-  let wordsOfLine = words.length / numberOfLine
+  static execute() {
+    let elements = document.querySelectorAll('[data-line-clamp]')
+    elements.forEach(function(element) {
+      let lineClamp = element.dataset.lineClamp
+      let lineHeight = uiKit.element.getComputedStyle(element, 'line-height')
 
-  words = words.slice(0, parseInt(wordsOfLine) * 4)
+      element.style.height = `${lineClamp * lineHeight}px`
+      element.classList.add('no-scroll')
 
-  return words
+      LineClamp.shave(element)
+    })
+  }
+
+  static shave(element) {
+    element.innerHTML = element.dataset.content
+    let words = element.dataset.content.split(' ')
+    while(element.scrollHeight > element.offsetHeight) {
+      words.pop()
+      element.innerHTML = `${words.join(' ')}...`
+    }
+  }
 }
 
 window.uiKit.LineClamp = LineClamp

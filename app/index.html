@@ -26,8 +26,8 @@
     <!--[if IE]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <header class="header">
-      <div class="container">
+    <div class="container">
+      <header class="header">
         <nav class="navbar">
           <a class="navbar-brand">UI-KIT</a>
 
@@ -64,8 +64,8 @@
             </span>
           </button>
         </nav>
-      </div>
-    </header>
+      </header>
+    </div>
 
     <main class="main">
       <section class="section-breadcrumb">
@@ -129,10 +129,12 @@
           </div>
           <div class="section-content">
             <h3 class="section-title">Normal button</h3>
+            <button class="btn btn-maroon">Maroon</button>
             <button class="btn btn-black">Black</button>
             <button class="btn btn-white">White</button>
 
             <h3 class="section-title">Outline button</h3>
+            <button class="btn btn-outline-maroon">Maroon</button>
             <button class="btn btn-outline-black">Black</button>
             <button class="btn btn-outline-white">White</button>
           </div>
@@ -272,13 +274,13 @@
     <div class="modal">
       <div class="modal-header">
         Modal title
-        <button type="button" class="close" data-modal-dimiss=".modal">&times;</button>
+        <button type="button" class="close" data-modal-dismiss=".modal">&times;</button>
       </div>
       <div class="modal-content">
         Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
       </div>
       <div class="modal-footer">
-         <button type="button" class="btn btn-black" data-modal-dimiss=".modal">Close</button>
+         <button type="button" class="btn btn-black" data-modal-dismiss=".modal">Close</button>
       </div>
     </div>
 
@@ -296,7 +298,7 @@
     <!-- endbuild -->
 
     <!-- build:js scripts/ui-kit.js -->
-    <script src="scripts/ui-kit-init.js"></script>
+    <script src="scripts/ui-kit-tools.js"></script>
     <script src="scripts/components/modal.js"></script>
     <script src="scripts/components/navbar.js"></script>
     <script src="scripts/components/tab.js"></script>

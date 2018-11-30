@@ -8,17 +8,15 @@
     .page-link {
       position: relative;
       display: block;
-      color: #007bff;
+      color: $maroon;
       background-color: #fff;
       text-decoration: none;
       line-height: 1.25;
-      border: 1px solid #dee2e6;
+      border: 1px solid $maroon;
       padding: 0.75rem 1rem;
 
       &:hover {
-        color: #0056b3;
         background-color: #e9ecef;
-        border-color: #dee2e6;
       }
     }
 
@@ -37,8 +35,8 @@
 
       .page-link {
         color: #fff;
-        background-color: #007bff;
-        border-color: #007bff;
+        background-color: $maroon;
+        border-color: $maroon;
       }
     }
   }

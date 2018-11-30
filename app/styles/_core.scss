@@ -9,3 +9,10 @@ body {
 .no-scroll {
   overflow: hidden;
 }
+
+a {
+
+  &:focus {
+    outline: none;
+  }
+}
